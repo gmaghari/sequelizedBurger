@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 center-align">
+      <h1 class="center-align text-warning">Holy Grail Burgers</h1>
+      <img class="center-align" id="logo" src="/assets/img/burger.png"></img>
+      <h3 class="center-align">You must choose. But choose wisely..</h3>
+      <form method="POST" action="/" class="button-size text-center">
+        <textarea type="text" name="burger_name" data-error="wrong" data-success="right" required></textarea>
+        <br>
+        <button class="waves-effect waves-light btn" type="submit">Order it!</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6 burger-col">
+      <ul class="collection with-header">
+        <li class="collection-header center-align">
+          <h5>Ready To Eat</h5></li>
+        {{!-- Display burgers unless devoured --}}
+        {{#each burgers}} {{#unless this.devoured}}
+        <li class="collection-item avatar">
+          <img src="../public/assets/img/burger.png" alt="" class="circle">
+          <span class="title">
+            {{this.id}}. {{this.burger_name}}</span>
+          <br>
+          <form action="/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="id" value="{{this.devoured}}">
+            <br>
+            <button class="waves-effect waves-light btn-floating btn-large secondary-content yellow darken-1" type="submit">EAT</button>
+          </form>
+        </li>
+        {{/unless}} {{/each}}
+      </ul>
+    </div>
+    <div class="col s12 m6 burger-col">
+      <ul class="collection with-header">
+        <li class="collection-header center-align">
+          <h5>Devoured Burgers</h5></li>
+        {{!-- Display devoured burgers --}}
+        {{#each burgers}} {{#if this.devoured}}
+        <li class="collection-item avatar">
+          <img src="/assets/img/wrapper.png" alt="" class="circle">
+          <span class="title grey-text text-darken-1">
+           
+              {{this.id}}. {{this.burger_name}}
+          
+          </span> {{/if}} {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
