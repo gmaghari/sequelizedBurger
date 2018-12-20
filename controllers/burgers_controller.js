@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models');
 
-//Grabs all the data from the burgers table...all of the burgers! These are sorted later with Handlebars #if and #unless statements
+// Gets all data from the burgers table
 router.get("/", function(req, res) {
 
     db.Burger.findAll({}).then(function(data) {
@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
     })
 });
 
-//User can enter a new burger into the system. Default values are already set for id, devoured=false, createdAt and updatedAt
+// Input new burgers
 router.post("/", function(req, res) {
     db.Burger.create({
         burger_name: req.body.burger_name

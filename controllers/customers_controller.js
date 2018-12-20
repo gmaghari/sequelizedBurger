@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models');
 
-//Grabs all the customers
+//Gets all the customers
 router.get("/", function(req, res) {
     var query = {};
     if (req.query.burger_id) {
@@ -17,7 +17,7 @@ router.get("/", function(req, res) {
     })
 });
 
-//User can enter a new customer
+//Post new customer
 router.post("/", function(req, res) {
     db.Customer.create({
         customer_name: req.body.customer_name
