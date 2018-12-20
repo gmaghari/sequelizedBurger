@@ -19,7 +19,6 @@
         {{!-- Display burgers unless devoured --}}
         {{#each burgers}} {{#unless this.devoured}}
         <li class="collection-item avatar">
-          <img src="../public/assets/img/burger.png" alt="" class="circle">
           <span class="title">
             {{this.id}}. {{this.burger_name}}</span>
           <br>
@@ -35,11 +34,10 @@
     <div class="col s12 m6 burger-col">
       <ul class="collection with-header">
         <li class="collection-header center-align">
-          <h5>Devoured Burgers</h5></li>
+          <h5>Burgers Consumed</h5></li>
         {{!-- Display devoured burgers --}}
         {{#each burgers}} {{#if this.devoured}}
         <li class="collection-item avatar">
-          <img src="/assets/img/wrapper.png" alt="" class="circle">
           <span class="title grey-text text-darken-1">
            
               {{this.id}}. {{this.burger_name}}
